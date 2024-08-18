@@ -55,7 +55,7 @@ const sketch: Sketch<"2d"> = ({ wrap, context: ctx }) => {
           const shp = path.map((p) => {
             return [tx + p[0] * tileSize, ty + p[1] * tileSize];
           });
-          shapes.push(triangle(shp, { fill: srgb(color) }));
+          shapes.push(triangle(shp, { fill: color }));
         }
       }
     }
@@ -71,7 +71,7 @@ const settings: SketchSettings = {
   animate: false,
   suffix: `-${seed}`,
   attributes: {
-    // colorSpace: "display-p3",
+    colorSpace: "display-p3",
   },
 };
 

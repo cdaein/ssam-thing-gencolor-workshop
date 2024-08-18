@@ -1,7 +1,9 @@
 import {
+  CSS_LEVEL4,
   Oklab,
   Oklch,
   RGB,
+  css,
   mix,
   multiColorGradient,
   oklab,
@@ -52,7 +54,7 @@ const sketch: Sketch<"2d"> = ({ wrap, context: ctx }) => {
         palette.map((col, i) => {
           const tileWidth = Math.ceil(width / palette.length);
           return rect([i * tileWidth, 0], [tileWidth, height], {
-            fill: srgb(col),
+            fill: css(col, CSS_LEVEL4),
           });
         }),
       ),
@@ -67,7 +69,7 @@ const settings: SketchSettings = {
   animate: false,
   suffix: `-${seed}`,
   attributes: {
-    // colorSpace: "display-p3",
+    colorSpace: "display-p3",
   },
 };
 

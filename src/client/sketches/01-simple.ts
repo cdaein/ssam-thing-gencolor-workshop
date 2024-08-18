@@ -5,7 +5,7 @@
 
 // https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/lch
 
-import { lch, oklch, srgb } from "@thi.ng/color";
+import { css, CSS_LEVEL4, lch, oklch, srgb } from "@thi.ng/color";
 import { group, rect } from "@thi.ng/geom";
 import { draw } from "@thi.ng/hiccup-canvas";
 import type { Sketch, SketchSettings } from "ssam";
@@ -26,7 +26,7 @@ const sketch: Sketch<"2d"> = ({ wrap, context: ctx }) => {
         rect([0, 0], [width / 2, height], { fill: srgb(cols[0]) }),
         rect([width / 2, 0], [width / 2, height / 2], { fill: srgb(cols[1]) }),
         rect([width / 2, height / 2], [width / 2, height / 2], {
-          fill: srgb(cols[2]),
+          fill: css(cols[2], CSS_LEVEL4),
         }),
       ]),
     );
@@ -38,9 +38,9 @@ const settings: SketchSettings = {
   dimensions: [256, 256],
   pixelRatio: window.devicePixelRatio,
   animate: false,
-  // attributes: {
-  // colorSpace: "display-p3",
-  // },
+  attributes: {
+    colorSpace: "display-p3",
+  },
 };
 
 ssam(sketch, settings);

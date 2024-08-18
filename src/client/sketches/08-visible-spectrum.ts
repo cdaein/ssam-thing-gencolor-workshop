@@ -40,7 +40,7 @@ const settings: SketchSettings = {
   pixelRatio: window.devicePixelRatio,
   animate: false,
   attributes: {
-    // colorSpace: "display-p3",
+    colorSpace: "display-p3",
   },
 };
 

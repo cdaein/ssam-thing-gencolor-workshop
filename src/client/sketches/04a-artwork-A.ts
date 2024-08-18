@@ -1,6 +1,15 @@
 // Exercise: Apply a procedural palette to an artwork
 
-import { hsl, lch, oklab, oklch, rgb, srgb } from "@thi.ng/color";
+import {
+  css,
+  CSS_LEVEL4,
+  hsl,
+  lch,
+  oklab,
+  oklch,
+  rgb,
+  srgb,
+} from "@thi.ng/color";
 import { circle, group } from "@thi.ng/geom";
 import { draw } from "@thi.ng/hiccup-canvas";
 import { Smush32, weightedRandom } from "@thi.ng/random";
@@ -34,10 +43,9 @@ const sketch: Sketch<"2d"> = ({ wrap, context: ctx }) => {
     )();
 
     // NOTE: @thi.ng/color doesn't have okhsl
-    // so take a trip to oklab and back to srgb
+    // so take a trip to oklab
     // color still looks a bit harsh.
-    return srgb(oklab(hsl(h, s, l)));
-    // return srgb(hsl(h, s, l));
+    return css(oklab(hsl(h, s, l)), CSS_LEVEL4);
   };
 
   const count = 100;
@@ -79,7 +87,7 @@ const settings: SketchSettings = {
   animate: false,
   suffix: `-${seed}`,
   attributes: {
-    // colorSpace: "display-p3",
+    colorSpace: "display-p3",
   },
 };
 

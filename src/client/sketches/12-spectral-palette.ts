@@ -61,7 +61,6 @@ const sketch: Sketch<"2d"> = ({ wrap, context: ctx, width, height }) => {
 
   const bgSpec = bright.map((x) => x * 1.04);
   const bgCol = spectra.spectra_to_sRGB(bgSpec).map((ch) => ch / 255);
-  console.log(bgCol);
 
   const shapes = shapesData.map((shape) => {
     const color = spectra.spectra_to_sRGB(shape.pigment).map((ch) => ch / 255);
@@ -92,7 +91,7 @@ const settings: SketchSettings = {
   animate: false,
   suffix: `-${seed}`,
   attributes: {
-    // colorSpace: "display-p3",
+    colorSpace: "display-p3",
   },
 };
 

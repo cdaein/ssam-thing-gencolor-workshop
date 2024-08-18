@@ -1,6 +1,6 @@
 // Exercise: Create a pair-generator that is harmonious
 
-import { oklch } from "@thi.ng/color";
+import { css, CSS_LEVEL4, oklch } from "@thi.ng/color";
 import { group, Rect, rect } from "@thi.ng/geom";
 import { draw } from "@thi.ng/hiccup-canvas";
 import { normal, pickRandom, Smush32 } from "@thi.ng/random";
@@ -53,8 +53,8 @@ const sketch: Sketch<"2d"> = ({ wrap, context: ctx }) => {
 
       const color = procColor();
       const shp = rect([x, y], [w, h], {
-        fill: color,
-        stroke: color,
+        fill: css(color, CSS_LEVEL4),
+        stroke: css(color, CSS_LEVEL4),
         weight: width * 0.015,
         lineJoin: "round",
       });
@@ -67,7 +67,7 @@ const sketch: Sketch<"2d"> = ({ wrap, context: ctx }) => {
       ctx,
       group(
         {
-          __background: procBackground(),
+          __background: css(procBackground(), CSS_LEVEL4),
           transform: [1, 0.2, 0.0, 1, 0, -height * 0.05],
         },
         shapes,
@@ -83,7 +83,7 @@ const settings: SketchSettings = {
   animate: false,
   suffix: `-${seed}`,
   attributes: {
-    // colorSpace: "display-p3",
+    colorSpace: "display-p3",
   },
 };
 

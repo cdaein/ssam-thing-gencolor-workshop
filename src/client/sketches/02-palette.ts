@@ -1,4 +1,4 @@
-import { Oklch, oklch, srgb } from "@thi.ng/color";
+import { css, CSS_LEVEL4, Oklch, oklch, srgb } from "@thi.ng/color";
 import { group, rect } from "@thi.ng/geom";
 import { draw } from "@thi.ng/hiccup-canvas";
 import { Smush32 } from "@thi.ng/random";
@@ -30,7 +30,7 @@ const sketch: Sketch<"2d"> = ({ wrap, context: ctx }) => {
         palette.map((col, i) => {
           const tileWidth = Math.ceil(width / palette.length);
           return rect([i * tileWidth, 0], [tileWidth, height], {
-            fill: srgb(col),
+            fill: css(col, CSS_LEVEL4),
           });
         }),
       ),
@@ -45,7 +45,7 @@ const settings: SketchSettings = {
   animate: false,
   suffix: `-${seed}`,
   attributes: {
-    // colorSpace: "display-p3",
+    colorSpace: "display-p3",
   },
 };
 

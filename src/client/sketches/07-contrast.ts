@@ -1,4 +1,4 @@
-import { contrast, oklch, srgb } from "@thi.ng/color";
+import { contrast, css, CSS_LEVEL4, oklch, srgb } from "@thi.ng/color";
 import { group, Line, line } from "@thi.ng/geom";
 import { draw } from "@thi.ng/hiccup-canvas";
 import { Smush32 } from "@thi.ng/random";
@@ -44,7 +44,7 @@ const sketch: Sketch<"2d"> = ({ wrap, context: ctx, width, height }) => {
       ctx,
       group(
         {
-          __background: srgb(col),
+          __background: css(col, CSS_LEVEL4),
           stroke: foreground,
           fill: foreground,
           weight: width * 0.01,
@@ -63,7 +63,7 @@ const settings: SketchSettings = {
   animate: false,
   suffix: `-${seed}`,
   attributes: {
-    // colorSpace: "display-p3",
+    colorSpace: "display-p3",
   },
 };
 
